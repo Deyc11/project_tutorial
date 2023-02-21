@@ -30,8 +30,8 @@ export class UsersService extends AbstractService {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
-    const user = (await this.findById(id)) as User
-    const { email, password, confirm_password, role_id, ...data } = UpdateUserDto
+    const user = await this.findById<User>(id)
+    const { email, password, confirm_password, role_id, ...data } = updateUserDto
     if (user.email !== email && email) {
       user.email = email
     }
@@ -62,7 +62,7 @@ export class UsersService extends AbstractService {
   }
 
   async updateUserImageId(id: string, avatar: string): Promise<User> {
-    const user = await this.findById(id)
+    const user = await this.findById<User>(id)
     return this.update(user.id, { avatar })
   }
 }

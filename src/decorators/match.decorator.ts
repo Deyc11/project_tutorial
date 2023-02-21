@@ -3,7 +3,6 @@ import {
   registerDecorator,
   ValidationArguments,
   ValidationOptions,
-  ValidationConstraint,
   ValidatorConstraintInterface,
   isValidationOptions,
   ValidatorConstraint,

@@ -19,8 +19,4 @@ export class User extends Base {
   @Column({ unique: true })
   @Exclude()
   password: string
-
-  @Column({ unique: true, default: null })
-  @Exclude()
-  refresh_token: string
 }
