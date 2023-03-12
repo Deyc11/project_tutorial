@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config'
 import { configValidationSchema } from 'config/schema.config'
 import { LoggerMiddleware } from 'middleware/logger.middlewear'
 import { UsersModule } from 'users/users.module'
+import { AuthModule } from './auth/auth.module'
 import { DatabaseModule } from './database_module'
 
 @Module({
@@ -14,6 +15,7 @@ import { DatabaseModule } from './database_module'
     }),
     DatabaseModule,
     UsersModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

@@ -12,11 +12,12 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
 
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const isPublic = this.reflector.getAllAndOverride('isPublic', [context.getHandler(), context.getClass()])
+    const request = context.switchToHttp().getRequest()
 
     if (isPublic) return true
 
     try {
-      const access_token = request.cookies['access_token']
+      const access_token = request.cookes['access_token']
       return !!this.jwtService.verify(access_token)
     } catch (error) {
       return false

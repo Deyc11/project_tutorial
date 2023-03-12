@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsOptional, IsEmail, Matches } from 'class-validator'
+import { IsEmail, IsNotEmpty, IsOptional, Matches } from 'class-validator'
 import { Match } from 'decorators/match.decorator'
 
 export class RegisterUserDto {
@@ -20,6 +20,6 @@ export class RegisterUserDto {
   password: string
 
   @IsNotEmpty()
-  @Match(RegisterUserDto, (field) => field.password, { message: 'Passwords do not match. ' })
+  @Match(RegisterUserDto, (field) => field.password, { message: 'Password do not match' })
   confirm_password: string
 }
